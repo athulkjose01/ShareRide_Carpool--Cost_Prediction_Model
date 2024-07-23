@@ -4,14 +4,13 @@ import numpy as np
 import pickle
 
 # Load the trained model and performance metrics
-@st.cache_resource
 def load_model():
     with open('carpool_model.pkl', 'rb') as file:
         model = pickle.load(file)
-    # Load metrics
     with open('model_metrics.pkl', 'rb') as file:
         metrics = pickle.load(file)
     return model, metrics
+
 
 # Make predictions
 def predict_cost(model, kilometers, car_model):
